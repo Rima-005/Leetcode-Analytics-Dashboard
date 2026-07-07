@@ -10,11 +10,21 @@ st.title("📊 LeetCode Analytics Dashboard")
 st.write("Track your coding journey.")
 
 df = pd.read_csv("data/problems.csv")
+df["Date"] = pd.to_datetime(df["Date"])
 
 st.subheader("Solved Problems")
-st.dataframe(df)
 
-df["Date"] = pd.to_datetime(df["Date"])
+search = st.text_input("🔍 Search Problems")
+
+filtered_df = df[
+    df["Problem"].str.contains(
+        search,
+        case=False,
+        na=False
+    )
+]
+
+st.dataframe(filtered_df)
 
 unique_dates = sorted(df["Date"].dt.date.unique())
 
