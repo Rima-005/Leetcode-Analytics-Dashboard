@@ -35,6 +35,18 @@ if len(unique_dates) > 0:
 
 st.metric(" Current Streak", streak)
 
+goal = 300
+
+progress = len(df)
+
+percentage = min(progress / goal, 1.0)
+
+st.subheader("Goal Progress")
+
+st.progress(percentage)
+
+st.write(f"{progress}/{goal} Problems Solved")
+
 
 # Statistics
 total = len(df)
