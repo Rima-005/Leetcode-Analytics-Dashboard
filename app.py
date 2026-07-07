@@ -125,3 +125,13 @@ if submit:
     df.to_csv("data/problems.csv", index=False)
 
     st.success("Problem added successfully!")
+    st.subheader("📥 Export Data")
+
+csv = df.to_csv(index=False)
+
+st.download_button(
+    label="Download Progress CSV",
+    data=csv,
+    file_name="leetcode_progress.csv",
+    mime="text/csv"
+)
