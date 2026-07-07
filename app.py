@@ -56,3 +56,18 @@ with st.form("problem_form"):
     date = st.date_input("Date Solved")
 
     submit = st.form_submit_button("Add Problem")
+
+if submit:
+
+    new_problem = pd.DataFrame({
+        "Problem": [problem_name],
+        "Difficulty": [difficulty],
+        "Topic": [topic],
+        "Date": [date]
+    })
+
+    df = pd.concat([df, new_problem], ignore_index=True)
+
+    df.to_csv("data/problems.csv", index=False)
+
+    st.success("Problem added successfully!")
