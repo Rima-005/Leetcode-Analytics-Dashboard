@@ -47,6 +47,17 @@ st.progress(percentage)
 
 st.write(f"{progress}/{goal} Problems Solved")
 
+st.subheader(" Monthly Progress")
+
+monthly_progress = (
+    df.groupby(df["Date"].dt.to_period("M"))
+    .size()
+)
+
+monthly_progress.index = monthly_progress.index.astype(str)
+
+st.line_chart(monthly_progress)
+
 
 # Statistics
 total = len(df)
