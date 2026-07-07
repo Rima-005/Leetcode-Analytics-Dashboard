@@ -35,3 +35,8 @@ difficulty_counts = df["Difficulty"].value_counts()
 st.subheader("Difficulty Distribution")
 
 st.bar_chart(difficulty_counts)
+topic_counts = df["Topic"].value_counts()
+
+st.subheader("Topic Analysis")
+
+st.bar_chart(topic_counts)
