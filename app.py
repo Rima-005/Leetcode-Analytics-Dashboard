@@ -40,3 +40,19 @@ topic_counts = df["Topic"].value_counts()
 st.subheader("Topic Analysis")
 
 st.bar_chart(topic_counts)
+st.subheader("Add New Problem")
+
+with st.form("problem_form"):
+
+    problem_name = st.text_input("Problem Name")
+
+    difficulty = st.selectbox(
+        "Difficulty",
+        ["Easy", "Medium", "Hard"]
+    )
+
+    topic = st.text_input("Topic")
+
+    date = st.date_input("Date Solved")
+
+    submit = st.form_submit_button("Add Problem")
