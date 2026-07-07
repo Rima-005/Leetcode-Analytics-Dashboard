@@ -15,6 +15,20 @@ A Streamlit-based dashboard that helps track and analyze LeetCode problem-solvin
 * Monthly progress visualization
 * Export progress data as CSV
 
+##  Screenshots
+
+### Dashboard
+
+![Dashboard](screenshot/dashboard.png)
+
+### Analytics
+
+![Analytics](screenshot/analytics.png)
+
+### Add Problem Form
+
+![Add Problem Form](screenshot/add-problem.png)
+
 ## Tech Stack
 
 * Python
