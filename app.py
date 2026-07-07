@@ -14,6 +14,27 @@ df = pd.read_csv("data/problems.csv")
 st.subheader("Solved Problems")
 st.dataframe(df)
 
+df["Date"] = pd.to_datetime(df["Date"])
+
+unique_dates = sorted(df["Date"].dt.date.unique())
+
+streak = 0
+
+if len(unique_dates) > 0:
+
+    streak = 1
+
+    for i in range(len(unique_dates)-1, 0, -1):
+
+        diff = (unique_dates[i] - unique_dates[i-1]).days
+
+        if diff == 1:
+            streak += 1
+        else:
+            break
+
+st.metric(" Current Streak", streak)
+
 
 # Statistics
 total = len(df)
